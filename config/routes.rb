@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
-  get 'kadais/index'
-  resources :kadais
+  resources :kadais do
+    collection do
+      post :confirm
+    end
+  end
 end
