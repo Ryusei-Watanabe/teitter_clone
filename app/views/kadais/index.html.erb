@@ -1,18 +1,22 @@
 <%= render 'header' %>
-<p><%= notice %></p>
-<table>
-  <tr>
-    <th>ツイート</th>
-  </tr>
-  <% @kadai.each do |kadai| %>
+<p class=index-p><%= notice %></p>
+<div class=body>
+  <table>
     <tr>
-      <td><%= kadai.content %></td>
-      <td><%= link_to '確認', kadai_path(kadai.id) %></td>
-      <td><%= link_to '編集', edit_kadai_path(kadai.id) %></td>
-      <td><%= link_to '削除', kadai_path(kadai.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
+      <th>過去のツイート</th>
     </tr>
-  <% end %>
-  </table>
-  <br>
-  <%= link_to '投稿', new_kadai_path %>
+    <% @kadai.each do |kadai| %>
+      <tr>
+        <td><%= kadai.content %></td>
+        <td><%= link_to '確認', kadai_path(kadai.id) %></td>
+        <td><%= link_to '編集', edit_kadai_path(kadai.id) %></td>
+        <td><%= link_to '削除', kadai_path(kadai.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
+      </tr>
+    <% end %>
+    </table>
+    <br>
+    <div class=post>
+    <%= link_to '投稿', new_kadai_path, class:"post" %>
+    </div>
+  </div>
   <%= render 'footer'%>

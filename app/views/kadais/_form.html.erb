@@ -1,17 +1,18 @@
 <%= form_with(model: @kadai, local: true, url: choose_new_or_edit) do |form| %>
 <% if @kadai.errors.any? %>
-   <div id="error_explanation">
-     <h2><%= @kadai.errors.count %>件のエラーがあります。</h2>
-     <ul>
-     <% @kadai.errors.full_messages.each do |msg| %>
-       <li><%= msg %></li>
-     <% end %>
-     </ul>
-   </div>
- <% end %>
+ <div id="error_explanation">
+   <h2><%= @kadai.errors.count %>件のエラーがあります。</h2>
+   <ul>
+   <% @kadai.errors.full_messages.each do |msg| %>
+     <li><%= msg %></li>
+   <% end %>
+   </ul>
+ </div>
+<% end %>
   <div class="kadai_content">
     <%= form.label :content %>
     <%= form.text_field :content %>
   </div>
-  <%= form.submit %>
+
+<%= form.submit %>
 <% end %>
